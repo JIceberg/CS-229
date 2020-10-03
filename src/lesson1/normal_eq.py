@@ -43,6 +43,9 @@ which results in
 
 Set that to 0, and then solve for \theta results in
 \theta = (x^{T}x)^{-1}x^{T}y
+
+Linear regression can also be applied to other functions of x.
+We can define x2 to be x^{2} or \sqrt{x} or even e^{x}.
 '''
 
 x1 = np.array([2104, 1416, 1534, 852, 1234])
