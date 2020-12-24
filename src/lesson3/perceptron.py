@@ -38,7 +38,7 @@ def fit_model():
                     fit = False
                 # this is the actual algorithm
                 w[j] += alpha * (y[i] - h(features.T[i])) * features[j][i]
-        i += 1
+            i += 1
 
 '''
 Starting here is just a way to show you how
