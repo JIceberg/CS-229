@@ -16,3 +16,6 @@ Below is the order in which you should review the lessons.
     1. [Local Regression](src/lesson2/local_regression.pdf)
     2. [Linear Regression](src/lesson2/linear_regression.pdf)
     3. [Logistic Regression](src/lesson2/logistic_regression.pdf)
+3. Lesson 3
+    1. [Perceptron](src/lesson3/perceptron.pdf)
+    2. [Generalized Linear Models](src/lesson3/glm.pdf)
