@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper, margin=1 in]{geometry}
+
+% graphics
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{fillbetween}
+
+\title{Local Regression}
+\author{}
+\date{}
+\setlength{\parindent}{0pt}
+\begin{document}
+\maketitle
+\vspace{-1.2em}
+Sometimes a curve can be fit by linear regression, but it is very difficult to determine what features need to be used. For example, the following training examples plotted as a function of x and y: \hfill
+\vspace{1em}
+\begin{center}
+    \begin{tikzpicture}
+      \pgfplotsset{
+          scale only axis,
+      }
+      \begin{axis}[
+        title={Sample Data},
+        xticklabels={,,},
+        yticklabels={,,}
+      ]
+        \addplot[only marks, mark=x]
+        coordinates{
+          (0.2, 1)
+          (0.24, 2)
+          (0.52, 2.3)
+          (0.72, 2.31)
+          (1.03, 2.78)
+          (1.22, 2.77)
+          (1.5, 2.28)
+          (1.75, 2.75)
+          (1.77, 3)
+          (2, 3.4)
+          (2.1, 3.34)
+          (2.3, 2.8)
+          (2.7, 2.2)
+          (2.9, 1.8)
+          (3.1, 1.4)
+          (3.2, 1.2)
+          (3.5, 0.4)
+        };
+      \end{axis}
+    \end{tikzpicture}
+\end{center}
+How would we decide what features we want to use for a linear regression algorithm?
+Because of this difficulty, we can use something called locally weighted regression instead.
+
+In machine learning, there is a difference between parametric and non-parametric learning algorithms.
+In a parametric learning algorithm, there is a fixed set of parameters that are fit to data.
+A non-parametric learning algorithm has an amount of data that needs to be kept which grows with
+the size of the data.
+
+With locally weighted regression, we look at some point x and then take some local set of
+training examples in that local area of x. Mathematically, we fit theta (the parameters) to
+minimize the cost function
+$$\sum_{i=1}^{m} {w^{(i)} \left ( y^{(i)} - \theta^{T}x^{(i)} \right )}^{2}$$
+where $w^{(i)}$ is a "weighting" function, which is commonly evaluated as
+$$\exp {\left( -\frac{\left( x^{(i)}-x \right)^{2}}{2} \right)}$$
+
+$x$ is the location where we want to compute a local area, and we use this weighting function
+to determine how our fitting line should be drawn. However, we need to know what the size of this
+local area should be. We can define $\tau$ to be the bandwidth, or size of the local area to which we
+fit our line, and then add that back into our weighting function:
+$$\exp {\left( -\frac{\left( x^{(i)}-x \right)^{2}}{2\tau^{2}} \right)}$$
+
+Locally weighted regression is best used with a low-dimensional dataset, meaning there
+aren't many features, but there are a lot of training examples (meaning you don't want to think about
+what features you will have to use in an algorithm such as linear regression).
+\end{document}
