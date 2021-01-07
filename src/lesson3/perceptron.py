@@ -29,8 +29,8 @@ w = [0 for _ in range(n)]
 
 h = lambda x: np.heaviside(np.dot(w, x), 1)
 def fit_model():
-    fit, i = False, 0
-    while not(fit) and i < 500:
+    fit, cnt = False, 0
+    while not(fit) and cnt < 500:
         fit = True
         for i in range(m):
             for j in range(n):
@@ -38,7 +38,7 @@ def fit_model():
                     fit = False
                 # this is the actual algorithm
                 w[j] += alpha * (y[i] - h(features.T[i])) * features[j][i]
-            i += 1
+        cnt += 1
 
 '''
 Starting here is just a way to show you how
