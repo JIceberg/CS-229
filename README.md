@@ -22,3 +22,4 @@ Below is the order in which you should review the lessons.
 1. Lesson 4
     1. [Multivariate Gaussian](src/lesson4/multivariate_gaussian.py)
     1. [Gaussian Discriminative Analysis](src/lesson4/gda.pdf)
+    1. [Naive Bayes](src/lesson4/naive_bayes.pdf)
